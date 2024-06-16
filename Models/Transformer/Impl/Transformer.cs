@@ -27,6 +27,8 @@ namespace transformers_battle_sim.Models.Transformer.Impl
         }
 
         //Generic character stuff
+        public Guid Id { get; set; }
+
         public string GetName()
         {
             return m_name;

@@ -7,6 +7,7 @@ namespace transformers_battle_sim.Models.Character.Interface
 {
     public interface ICharacter
     {
+        Guid Id { get; set; }
         string GetName();
         void SetName(string newName);
         string GetFaction();
