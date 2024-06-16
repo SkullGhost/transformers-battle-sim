@@ -8,6 +8,16 @@ namespace transformers_battle_sim.Models.Transformer.Impl
 {
     public class Transformer : ITransformer
     {
+        public Transformer(string name, string faction, int wins, int loss, List<IMode> modes)
+        {
+            Id = Guid.NewGuid();
+            m_name = name;
+            m_faction = faction;
+            m_win_count = wins;
+            m_loss_count = loss;
+            m_modes = modes;
+        }
+
         //Transformer specific stuff
         public void Transform(string newMode)
         {
