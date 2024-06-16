@@ -8,22 +8,17 @@ namespace transformers_battle_sim.Models.Transformer.Impl
 {
     public class SportsCar : IMode
     {
-        public string GetModeName()
+        public SportsCar()
         {
-            return "Sports Car";
+            ModeName = "Sports Car";
+            MovementType = MovementType.WHEELS;
+            MovementSpeed = 120;
+            AttackPower = 4;
         }
-        public MovementType GetMovementType()
-        {
-            return MovementType.WHEELS;
-        }
-        public double GetMoveSpeed()
-        {
-            return 120; 
-        }
-
-        public double GetAttackPower()
-        {
-            return 4;
-        }
+        public Guid Id { get; set; }
+        public string ModeName { get; set; }
+        public MovementType MovementType { get; set; }
+        public double MovementSpeed { get; set; }
+        public double AttackPower { get; set; }
     }
 }

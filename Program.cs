@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using transformers_battle_sim.Data;
+using transformers_battle_sim.Models;
 
 namespace transformers_battle_sim
 {
@@ -13,7 +17,17 @@ namespace transformers_battle_sim
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var builder = CreateHostBuilder(args);
+            //builder.
+            var app = builder.Build();
+            //using (IServiceProvider scope = app.Services)
+            //{
+            //    var services = scope.ServiceProvider;
+
+            //    TestData.Initialize(services);
+            //}
+
+            app.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

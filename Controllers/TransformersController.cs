@@ -8,13 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using transformers_battle_sim.Data;
 using transformers_battle_sim.Data.Interface;
 using transformers_battle_sim.Models.Transformer.Impl;
+using transformers_battle_sim.Models.Character.Interface;
 
 namespace transformers_battle_sim.Controllers
 {
     public class TransformersController : Controller
     {
-        //private readonly transformers_battle_simContext _context;
-
         private readonly IRepository _repo;
 
         public TransformersController(IRepository repo)
@@ -26,7 +25,13 @@ namespace transformers_battle_sim.Controllers
         public async Task<IActionResult> Index()
         {
             //return View(await _repo.Transformer.ToListAsync());
-            return View(_repo.GetCharacterList());
+            var genericList = _repo.GetCharacterList();
+            List<Transformer> tfList = new List<Transformer>();
+            foreach(var tf in genericList)
+            {
+                tfList.Add((Transformer)tf);
+            }
+            return View(tfList);
         }
 
         // GET: Transformers/Details/5

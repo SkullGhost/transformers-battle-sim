@@ -8,22 +8,18 @@ namespace transformers_battle_sim.Models.Transformer.Impl
 {
     public class Robot : IMode
     {
-        public string GetModeName()
+        public Robot()
         {
-            return "Robot";
+            ModeName = "Robot";
+            MovementType = MovementType.BIPEDAL;
+            MovementSpeed = 40;
+            AttackPower = 7;
         }
-        public MovementType GetMovementType()
-        {
-            return MovementType.BIPEDAL;
-        }
-        public double GetMoveSpeed()
-        {
-            return 40;
-        }
+        public Guid Id { get; set; }
+        public string ModeName { get; set; }
+        public MovementType MovementType { get; set; }
+        public double MovementSpeed { get; set; }
+        public double AttackPower { get; set; }
 
-        public double GetAttackPower()
-        {
-            return 7;
-        }
     }
 }

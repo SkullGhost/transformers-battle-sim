@@ -19,6 +19,7 @@ namespace transformers_battle_sim.Data.Impl
         }
 
         private DbSet<Transformer> Transformer { get; set; }
+        private DbSet<Mode> Mode { get; set; }
 
         public void AddCharacter(ICharacter newCharacter)
         {

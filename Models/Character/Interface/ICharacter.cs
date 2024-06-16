@@ -7,16 +7,12 @@ namespace transformers_battle_sim.Models.Character.Interface
 {
     public interface ICharacter
     {
-        Guid Id { get; set; }
-        string GetName();
-        void SetName(string newName);
-        string GetFaction();
-        void SetFaction(string newFaction);
-        int GetWins();
-        void SetWins(int newWins);
-        int GetLosses();
-        void SetLosses(int newLosses);
-        double GetWinRatio();
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Faction { get; set; }
+        public int WinCount { get; set; }
+        public int LossCount { get; set; }
+        public double GetWinRatio();
 
     }
 }

@@ -8,23 +8,23 @@ namespace transformers_battle_sim.Models.Transformer.Impl
 {
     public class Transformer : ITransformer
     {
-        public Transformer(string name, string faction, int wins, int loss, List<IMode> modes)
+       /* public Transformer(string name, string faction, int winCount, int lossCount, List<IMode> modes)
         {
             Id = Guid.NewGuid();
-            m_name = name;
-            m_faction = faction;
-            m_win_count = wins;
-            m_loss_count = loss;
-            m_modes = modes;
-        }
+            Name = name;
+            Faction = faction;
+            WinCount = winCount;
+            LossCount = lossCount;
+            Modes = modes;
+        }*/
 
         //Transformer specific stuff
         public void Transform(string newMode)
         {
             //Change mode if this transformer is capable
-            foreach(IMode thisMode in m_modes)
+            foreach(Mode thisMode in Modes)
             {
-                if(thisMode.GetModeName() == newMode)
+                if(thisMode.ModeName == newMode)
                 {
                     m_current_mode = thisMode;
                 }
@@ -38,57 +38,24 @@ namespace transformers_battle_sim.Models.Transformer.Impl
 
         //Generic character stuff
         public Guid Id { get; set; }
-
-        public string GetName()
-        {
-            return m_name;
-        }
-        public void SetName(string newName)
-        {
-            m_name = newName;
-        }
-        public string GetFaction()
-        {
-            return m_faction;
-        }
-        public void SetFaction(string newFaction)
-        {
-            m_faction = newFaction;
-        }
-        public int GetWins()
-        {
-            return m_win_count;
-        }
-        public void SetWins(int newWins)
-        {
-            m_win_count = newWins;
-        }
-        public int GetLosses()
-        {
-            return m_loss_count;
-        }
-        public void SetLosses(int newLosses)
-        {
-            m_loss_count = newLosses;
-        }
+        public string Name { get; set; }
+        public string Faction { get; set; }
+        public int WinCount { get; set; }
+        public int LossCount { get; set; }
         public double GetWinRatio()
         {
-            int total_matches = m_win_count + m_loss_count;
+            int total_matches = WinCount + LossCount;
 
             if (total_matches != 0)
             {
-                return m_win_count / total_matches;
+                return WinCount / total_matches;
             }
 
             return 0; //If total matches is zero
         }
 
-        private List<IMode> m_modes;
-        IMode m_current_mode;
+        public List<Mode> Modes { get; set; }
+        Mode m_current_mode;
 
-        private string m_name;
-        private string m_faction;
-        private int m_win_count;
-        private int m_loss_count;
     }
 }

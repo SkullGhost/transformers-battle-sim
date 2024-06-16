@@ -17,12 +17,12 @@ namespace transformers_battle_sim.Models.Transformer.Interface
     }
     public interface IMode
     {
-        public string GetModeName();
-        public MovementType GetMovementType();
-        public double GetMoveSpeed();
-
+        public Guid Id { get; set; }
+        public string ModeName { get; set; }
+        public MovementType MovementType { get; set; }
+        public double MovementSpeed { get; set; }
         //Future improvement would have each mode having an array of attacks/weapons available to this mode
         //Having attack be a flat number for now
-        public double GetAttackPower();
+        public double AttackPower { get; set; }
     }
 }
