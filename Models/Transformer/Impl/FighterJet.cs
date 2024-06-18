@@ -6,7 +6,7 @@ using transformers_battle_sim.Models.Transformer.Interface;
 
 namespace transformers_battle_sim.Models.Transformer.Impl
 {
-    public class FighterJet : IMode
+    public class FighterJet : Mode
     {
         public FighterJet()
         {
@@ -15,10 +15,6 @@ namespace transformers_battle_sim.Models.Transformer.Impl
             MovementSpeed = 500;
             AttackPower = 5;
         }
-        public Guid Id { get; set; }
-        public string ModeName { get; set; }
-        public MovementType MovementType { get; set; }
-        public double MovementSpeed { get; set; }
-        public double AttackPower { get; set; }
+
     }
 }

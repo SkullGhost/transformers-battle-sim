@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace transformers_battle_sim.Data.Impl
 {
     //Inherits from IRepository interface but also from DbContext to interact with SQL
-    public class TransformerRepository: DbContext, IRepository
+    public class TransformerRepository : DbContext, IRepository
     {
 
         public TransformerRepository(DbContextOptions<TransformerRepository> options)
@@ -33,24 +33,25 @@ namespace transformers_battle_sim.Data.Impl
             this.SaveChanges();
         }
 
-       public  ICharacter RetrieveCharacter(Guid Id)
-       {
+        public ICharacter RetrieveCharacter(Guid Id)
+        {
             var transformer = Transformer.Find(Id);
 
             return transformer;
-       }
+        }
 
         public List<ICharacter> GetCharacterList()
         {
             var transformerList = Transformer.ToList();
             List<ICharacter> newList = new List<ICharacter>();
             //Add them to generic list
-            foreach(Transformer tf in transformerList)
+            foreach (Transformer tf in transformerList)
             {
                 newList.Add(tf);
             }
             return newList;
         }
+
         public void RecordBattle(List<ICharacter> winners, List<ICharacter> losers)
         {
             //TODO

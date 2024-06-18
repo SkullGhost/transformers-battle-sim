@@ -6,7 +6,7 @@ using transformers_battle_sim.Models.Transformer.Interface;
 
 namespace transformers_battle_sim.Models.Transformer.Impl
 {
-    public class Robot : IMode
+    public class Robot : Mode
     {
         public Robot()
         {
@@ -15,11 +15,6 @@ namespace transformers_battle_sim.Models.Transformer.Impl
             MovementSpeed = 40;
             AttackPower = 7;
         }
-        public Guid Id { get; set; }
-        public string ModeName { get; set; }
-        public MovementType MovementType { get; set; }
-        public double MovementSpeed { get; set; }
-        public double AttackPower { get; set; }
 
     }
 }

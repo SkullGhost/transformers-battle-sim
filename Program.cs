@@ -18,14 +18,8 @@ namespace transformers_battle_sim
         public static void Main(string[] args)
         {
             var builder = CreateHostBuilder(args);
-            //builder.
             var app = builder.Build();
-            //using (IServiceProvider scope = app.Services)
-            //{
-            //    var services = scope.ServiceProvider;
 
-            //    TestData.Initialize(services);
-            //}
 
             app.Run();
         }

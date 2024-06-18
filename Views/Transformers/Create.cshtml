@@ -10,12 +10,31 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+		<form asp-action="Create" method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<div class="form-group">
+				<label asp-for="Name" class="control-label"></label>
+				<input asp-for="Name" class="form-control" />
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Faction" class="control-label"></label>
+				<input asp-for="Faction" class="form-control" />
+				<span asp-validation-for="Faction" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label>"Win count and loss count are hidden attributes initialized to zero (Only the sim updates those)"</label>
+			</div>
+			<input type="hidden" asp-for="WinCount" />
+			<input type="hidden" asp-for="LossCount" />
+			<div class="form-group">
+				<label>"TODO implement multi-select to add modes"</label>
+			</div>
+			<div class="form-group">
+				<button type="submit" value="Create" class="btn btn-primary">Create Transformer</button>
+			</div>
+		</form>
     </div>
 </div>
 

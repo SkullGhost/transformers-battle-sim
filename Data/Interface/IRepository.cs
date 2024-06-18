@@ -15,6 +15,7 @@ namespace transformers_battle_sim.Data.Interface
         public ICharacter RetrieveCharacter(Guid Id);
 
         public List<ICharacter> GetCharacterList();
+
         public void RecordBattle(List<ICharacter> winners, List<ICharacter> losers);
     }
 }

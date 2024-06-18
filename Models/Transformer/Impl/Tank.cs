@@ -6,7 +6,7 @@ using transformers_battle_sim.Models.Transformer.Interface;
 
 namespace transformers_battle_sim.Models.Transformer.Impl
 {
-    public class Tank : IMode
+    public class Tank : Mode
     {
         public Tank()
         {
@@ -15,10 +15,5 @@ namespace transformers_battle_sim.Models.Transformer.Impl
             MovementSpeed = 45;
             AttackPower = 8;
         }
-        public Guid Id { get; set; }
-        public string ModeName { get; set; }
-        public MovementType MovementType { get; set; }
-        public double MovementSpeed { get; set; }
-        public double AttackPower { get; set; }
     }
 }

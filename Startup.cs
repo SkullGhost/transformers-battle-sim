@@ -33,8 +33,11 @@ namespace transformers_battle_sim
                     options.UseSqlServer(Configuration.GetConnectionString("transformers_battle_simContext")));
 
             services.AddScoped<IRepository, TransformerRepository>();
+            var repoOpts = new DbContextOptionsBuilder<TransformerRepository>();
+            repoOpts.UseSqlServer(Configuration.GetConnectionString("transformers_battle_simContext"));
 
-           // TransformerRepository tfRepo = new TransformerRepository(Microsoft.EntityFrameworkCore.DBContextOptionsBuilder().UseSqlServer(Configuration.GetConnectionString("transformers_battle_simContext")));
+            TransformerRepository tfRepo = new TransformerRepository(repoOpts.Options);
+            TestData.Initialize(tfRepo);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

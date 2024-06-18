@@ -63,16 +63,14 @@ namespace transformers_battle_sim.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] Transformer transformer)
+        public async Task<IActionResult> Create([Bind("Id,Name,Faction,WinCount,LossCount")] Transformer transformer)
         {
-            if (ModelState.IsValid)
-            {
+
                 transformer.Id = Guid.NewGuid();
+                transformer.LossCount = 0;
+                transformer.WinCount = 0;
                 _repo.AddCharacter(transformer);
-                //await _repo.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(transformer);
         }
 
         // GET: Transformers/Edit/5
